@@ -1,0 +1,20 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+<div class="container-fluid ">
+    <div class="row d-flex justify-content-center">
+    {% for bud in bud %}
+        <div class="bud col-3">
+            <h1 class="text-center">{{bud.brand}}</h1>
+            <p class="d-inline">Name: {{bud.strain}}</p>
+            <p class="d-inline">Type: {{bud.category}}</p>
+            <p class="d-inline">THC: {{bud.thc}}%</p>
+            <img class="float-left" src="../static/IMAGES/{{bud.img}}" alt="">
+            <p class="d-inline">QTY: {{bud.qty}}</p>
+            <p class="d-inline">${{bud.price}}</p>
+        </div>
+    {% endfor %}
+    </div>
+</div>
+    {% endblock %}
