@@ -18,7 +18,7 @@ def create_app():
 
 app = create_app()
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/admin', methods=['GET', 'POST'])
 def home():
     form = Budorm()
 
@@ -41,15 +41,15 @@ def home():
             db.session.add(newBud)
             db.session.commit()
        
-        return redirect('/bud')
+        return redirect('/home')
 
-    return render_template('index.html', form=form)
+    return render_template('admin.html', form=form)
 
-@app.route('/bud')
+@app.route('/')
 def bud():
     form = Search()
     bud = Bud.query.all()
-    return render_template('/bud.html', bud=bud, form=form)
+    return render_template('index.html', bud=bud, form=form)
 
 @app.route('/filter')
 def filter():
