@@ -21,7 +21,6 @@ app = create_app()
 @app.route('/', methods=['GET', 'POST'])
 def home():
     form = Budorm()
-    search = Search()
 
     if form.validate_on_submit():
         brand = form.brand.data
@@ -44,17 +43,17 @@ def home():
        
         return redirect('/bud')
 
-    return render_template('index.html', form=form, search=search)
+    return render_template('index.html', form=form)
 
 @app.route('/bud')
 def bud():
+    form = Search()
     bud = Bud.query.all()
-    return render_template('/bud.html', bud=bud)
+    return render_template('/bud.html', bud=bud, form=form)
 
 @app.route('/filter')
 def filter():
+    form = Search()
     term = 0 if request.args.get('search') == '' else request.args.get('search')
-    print(term)
-    # pdb.set_trace()
     bud = Bud.query.where(Bud.thc >= term)
-    return render_template('/bud.html', bud=bud)
+    return render_template('/bud.html', form=form, bud=bud, term=term)

@@ -18,25 +18,6 @@
     <div class="container"> <!-- container -->
       <div class="row d-flex justify-content-center"> <!-- row -->
 
-      <form method="GET" action="/filter" class="col-5">
-      {{ form.hidden_tag() }}
-
-      {% for field in search
-            if field.widget.input_type != 'hidden' %}
-
-        <p>
-          {{ field.label }}
-          {{ field }}
-
-          {% for error in field.errors %}
-            {{ error }}
-          {% endfor %}
-        </p>
-      
-      {% endfor %}
-      
-      <button type="submit" class="btn btn-success btn-sm">Submit</button>
-    </form>
   
   <form method="POST" action="/" class="col-5">
       {{ form.hidden_tag() }}
