@@ -30,12 +30,28 @@ footer{
     text-align: center;
 }
 
-form{
+.admin{
     border: 1px solid black;
     margin: 10px;
     padding: 10px;
 }
 
 .filter{
-    width: 250px;
+    width: 100%;
+    
+}
+
+.modalBtn{
+    padding: 20px;
+    /* position: relative;
+    right: 100px; */
+}
+
+.modalBtn:hover{
+    cursor:crosshair;
+}
+
+.filter-btn{
+    height: 20px;
+    background-color: greenyellow;
 }

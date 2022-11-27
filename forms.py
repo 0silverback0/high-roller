@@ -1,12 +1,14 @@
 from unicodedata import category
 from wsgiref.validate import validator
 from flask_wtf import FlaskForm
-from wtforms import FloatField, RadioField, StringField, FileField, IntegerField
+from wtforms import FloatField, RadioField, StringField, FileField, IntegerField, SelectField
 # from werkzeug.utils import FileField
 from wtforms.validators import DataRequired
 
 class Search(FlaskForm):
-    search = StringField('Search')
+    thc = IntegerField('THC')
+    brand = StringField('Brand')
+    category = SelectField('Type', choices=[('','Select'),('Sativa','Sativa'), ('Indica', 'Indica'), ('Hybrid', 'Hybrid')])
     
 class Budorm(FlaskForm):
     brand = StringField('Brand', validators=[DataRequired()])

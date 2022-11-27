@@ -7,8 +7,8 @@ with app.app_context():
 
     b1 = Bud(
         brand='Collins Ave',
-        strain='cookies',
-        category='indica',
+        strain='Cookies',
+        category='Indica',
         thc = 21.04,
         img = 'safetypackIndica.jpeg',
         price= 50,
@@ -46,5 +46,15 @@ with app.app_context():
         qty = '1/4',
     )
 
-    db.session.add_all([b1, b2, b3, b4])
+    b5 = Bud(
+        brand='Collins Ave',
+        strain='Afghan',
+        category='Indica',
+        thc = 21.04,
+        img = 'safetypackIndica.jpeg',
+        price= 40,
+        qty = '1/8'
+    )
+
+    db.session.add_all([b1, b2, b3, b4, b5])
     db.session.commit()

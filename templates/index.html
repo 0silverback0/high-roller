@@ -2,38 +2,52 @@
 
 {% block content %}
 
-<!-- <form method="GET" action="/filter" class="filter float-left col-5">
-    <h3>Filter</h3>
-    {{ form.hidden_tag() }}
-
-    {% for field in form
-          if field.widget.input_type != 'hidden' %}
-
-      <p>
-        {{ field.label }}
-        {{ field }}
-
-        {% for error in field.errors %}
-          {{ error }}
-        {% endfor %}
-      </p>
+<div class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Filters</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body d-flex">
+        <form method="GET" action="/filter" class="filter col">
+          {{ form.hidden_tag() }}
+      
+          {% for field in form
+                if field.widget.input_type != 'hidden' %}
+      
+            <p>
+              {{ field.label }}
+              {{ field (class_="form-control")}}
+      
+              {% for error in field.errors %}
+                {{ error }}
+              {% endfor %}
+            </p>
+          
+          {% endfor %}
     
-    {% endfor %}
-    
-    <button type="submit" class="btn btn-success btn-sm">Submit</button>
-</form> -->
+          <button type="submit" class="btn btn-success btn-sm">Apply Filters</button>
+      </form>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div class="container">
     <div class="row d-flex justify-content-center">
     {% for bud in bud %}
 
         <div class="card m-2" style="width: 18rem;">
-            <img src="../static/IMAGES/{{bud.img}}" class="card-img-top" alt="...">
+          <h3 class="text-center bg-success">{{bud.strain}}</h3>
+            <img src="../static/IMAGES/{{bud.img}}" class="card-img-top" height='200' alt="cannibus image">
+            <hr>
             <div class="card-body">
-              <h3 class="text-center bg-success">{{bud.brand}}</h3>
               <div class="m-3">
-                <span class="badge badge-pill badge-primary">Strain</span>
-                <span class="badge badge-pill badge-success float-right">{{bud.strain}}</span>
+                <span class="badge badge-pill badge-primary">Brand</span>
+                <span class="badge badge-pill badge-success float-right">{{bud.brand}}</span>
               </div>
               <div class="m-3">
                 <span class="badge badge-pill badge-primary">Type</span>

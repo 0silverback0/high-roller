@@ -1,7 +1,8 @@
 from flask import Flask, render_template, redirect, request
 from models import connect_db, db, Bud
 from forms import Budorm, Search
-import os , pdb
+from filter import Filter
+import os , string, pdb
 from werkzeug.utils import secure_filename
 
 def create_app():
@@ -28,8 +29,6 @@ def home():
         category = form.category.data
         thc = form.thc.data
         img = form.img.data
-        # pdb.set_trace()
-        # print(img)
         qty = form.qty.data
         price = form.price.data
 
@@ -41,7 +40,7 @@ def home():
             db.session.add(newBud)
             db.session.commit()
        
-        return redirect('/home')
+        return redirect('/')
 
     return render_template('admin.html', form=form)
 
@@ -54,6 +53,23 @@ def bud():
 @app.route('/filter')
 def filter():
     form = Search()
-    term = 0 if request.args.get('search') == '' else request.args.get('search')
-    bud = Bud.query.where(Bud.thc >= term)
-    return render_template('/bud.html', form=form, bud=bud, term=term)
+    # bud = Bud.query.all()
+    thc = False if request.args.get('thc') == '' else request.args.get('thc')
+    brand = None or string.capwords(request.args.get('brand'))
+    category = None or request.args.get('category')
+
+    filter = Filter(Bud,thc,brand,category)
+    bud = filter.query_filter()
+    # import pdb
+    # pdb.set_trace()
+
+    
+
+    # #check highest thc content and filter
+    # if int(thc) > int(high_thc):
+    #     bud = bud
+    # else:
+    #     bud = Filter.query_filter(bud, thc, brand)
+    
+    return render_template('index.html', form=form, bud=bud)
+
