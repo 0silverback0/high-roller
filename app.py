@@ -53,23 +53,12 @@ def bud():
 @app.route('/filter')
 def filter():
     form = Search()
-    # bud = Bud.query.all()
     thc = False if request.args.get('thc') == '' else request.args.get('thc')
     brand = None or string.capwords(request.args.get('brand'))
     category = None or request.args.get('category')
 
     filter = Filter(Bud,thc,brand,category)
     bud = filter.query_filter()
-    # import pdb
-    # pdb.set_trace()
-
-    
-
-    # #check highest thc content and filter
-    # if int(thc) > int(high_thc):
-    #     bud = bud
-    # else:
-    #     bud = Filter.query_filter(bud, thc, brand)
     
     return render_template('index.html', form=form, bud=bud)
 
