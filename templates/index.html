@@ -43,7 +43,6 @@
         <div class="card m-2" style="width: 18rem;">
           <h3 class="text-center bg-success">{{bud.strain}}</h3>
             <img src="../static/IMAGES/{{bud.img}}" class="card-img-top" height='200' alt="cannibus image">
-            <hr>
             <div class="card-body">
               <div class="m-3">
                 <span class="badge badge-pill badge-primary">Brand</span>
@@ -66,6 +65,7 @@
                 <span class="badge badge-pill badge-success float-right">${{bud.price}}</span>
               </div>
             </div>
+              <button class="add-to-cart btn btn-sm btn-success">Add to Cart</button>
           </div>
 
     {% endfor %}

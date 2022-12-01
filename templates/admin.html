@@ -9,18 +9,31 @@
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
           integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+          <link href="https://fonts.googleapis.com/css2?family=Black+And+White+Picture&family=Clicker+Script&display=swap" rel="stylesheet">
           <link rel="stylesheet" href="../static/styles.css">
-          <title>The Grove</title>
+          <title>High Roller</title>
       </head>
       <body>
       
+        {% block header %}
         <div class="header">
           <header class="d-flex align-items-center justify-content-center">
-            <h1 class="">The Grove</h1>
+            <!-- <h1 class="">High Roller</h1> -->
+            <div class="container">
+              <img class="header-img" src="../static/IMAGES/header.png" alt="">
+            </div>
           </header>
-          <i class="fa-solid fa-filter modalBtn float-right"></i>
+          <img  class="header-img mb-5" src="../static/IMAGES/header2.png" alt="">
         </div>
-         
+        <div class="float-right sticky-top mr-3 d-none d-md-block ">
+          <i class="fa-solid fa-filter modalBtn "></i>
+          <img class="test" src="../static/IMAGES/cart2.png" height="40" width="'30" alt="">
+        </div>
+        {% endblock %}
          
           {% block content %}
           <div class="container"> <!-- container -->
@@ -51,7 +64,7 @@
       
         {% endblock %}
       
-        <footer>
+        <footer class="text-center mt-5">
           <span>Marcell 2022</span>
         </footer>
       
