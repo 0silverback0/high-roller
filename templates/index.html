@@ -41,7 +41,7 @@
     {% for bud in bud %}
 
         <div class="card m-2" style="width: 18rem;">
-          <h3 class="text-center bg-success">{{bud.strain}}</h3>
+          <h3 class="text-center bg-success" data-id="{{bud.id}}">{{bud.strain}}</h3>
             <img src="../static/IMAGES/{{bud.img}}" class="card-img-top" height='200' alt="cannibus image">
             <div class="card-body">
               <div class="m-3">

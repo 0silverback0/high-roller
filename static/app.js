@@ -2,6 +2,7 @@ const $modalBtn = $('.modalbtn')
 const $filter = $('.modal')
 const $addTocart = $('.add-to-cart')
 const $cart = $('.test')
+const $card = $('.card')
 
 $modalBtn.click( e => {
     $filter.modal('show')
@@ -18,4 +19,9 @@ $addTocart.click( e => {
         console.log('here')
     }, 1100);
 
+})
+
+$card.click( e => {
+    e.preventDefault()
+    console.log(e)
 })
